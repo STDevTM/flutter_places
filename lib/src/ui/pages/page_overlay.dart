@@ -8,7 +8,6 @@ import '../../models/place.dart';
 import '../../models/search_options.dart';
 import '../../services/google_maps_service.dart';
 import '../../utils/extensions.dart';
-import '../components/logo_widget.dart';
 import '../components/predictions_widget.dart';
 import '../components/search_field_widget.dart';
 
@@ -195,41 +194,45 @@ class _PageOverlayState extends State<PageOverlay> {
                   return SliverToBoxAdapter();
                 },
               ),
-              SliverToBoxAdapter(
-                child: GestureDetector(
-                  onTap: () {
-                    // To avoid close dialog when click on the logo section
-                  },
-                  child: Material(
-                    clipBehavior: Clip.antiAlias,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.vertical(
-                        bottom: Radius.circular(widget.radius),
+              if (_isLoadingDetails || _isLoading)
+                SliverToBoxAdapter(
+                  child: GestureDetector(
+                    onTap: () {
+                      // To avoid close dialog when click on the logo section
+                    },
+                    child: Material(
+                      clipBehavior: Clip.antiAlias,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.vertical(
+                          bottom: Radius.circular(widget.radius),
+                        ),
                       ),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 20),
-                      child: Row(
-                        children: [
-                          Container(
-                            height: 15,
-                            width: 15,
-                            margin: const EdgeInsets.symmetric(horizontal: 29),
-                            child: Visibility(
-                              visible: _isLoading || _isLoadingDetails,
-                              child: CircularProgressIndicator(
-                                strokeWidth: 2,
-                              ),
-                            ),
-                          ),
-                          if (widget.showLogo)
-                            widget.logoWidget ?? LogoWidget(),
-                        ],
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 20),
+                        child: Row(
+                          children: [
+                            // Container(
+                            //   height: 15,
+                            //   width: 15,
+                            //   margin: const EdgeInsets.symmetric(horizontal: 29),
+                            //   child: Visibility(
+                            //     visible: _isLoading || _isLoadingDetails,
+                            //     child: CircularProgressIndicator(
+                            //       strokeWidth: 2,
+                            //     ),
+                            //   ),
+                            // ),
+                            // if (widget.showLogo)
+                            //   widget.logoWidget ?? LogoWidget(),
+                            CircularProgressIndicator(
+                              strokeWidth: 2,
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
             ],
           ),
         ),

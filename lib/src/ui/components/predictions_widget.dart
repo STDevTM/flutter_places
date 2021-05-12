@@ -17,7 +17,7 @@ SliverList predictionsWidget({
           },
           child: Material(
             child: Padding(
-              padding: const EdgeInsetsDirectional.only(start: 72.7),
+              // padding: const EdgeInsetsDirectional.only(start: 72.7),
               child: Column(
                 children: [
                   PredictionItemWidget(
