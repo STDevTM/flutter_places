@@ -133,11 +133,13 @@ class _PageOverlayState extends State<PageOverlay> {
               SliverToBoxAdapter(
                 child: Material(
                   clipBehavior: Clip.antiAlias,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.vertical(
-                      top: Radius.circular(widget.radius),
-                    ),
-                  ),
+                  // shape: RoundedRectangleBorder(
+                  //   borderRadius: (_isLoading || _isLoadingDetails) ? BorderRadius.vertical(
+                  //     top: Radius.circular(widget.radius),
+                  //   ) : BorderRadius.all(
+                  //     Radius.circular(widget.radius),
+                  //   ),
+                  // ),
                   child: AppBar(
                     elevation: 0,
                     backgroundColor: Colors.transparent,
@@ -176,11 +178,11 @@ class _PageOverlayState extends State<PageOverlay> {
                   ),
                 ),
               ),
-              SliverToBoxAdapter(
-                child: Material(
-                  child: const Divider(),
-                ),
-              ),
+              // SliverToBoxAdapter(
+              //   child: Material(
+              //     child: const Divider(),
+              //   ),
+              // ),
               StreamBuilder<List<Prediction>>(
                 stream: _streamController.stream,
                 builder: (_, snapshot) {
@@ -202,14 +204,15 @@ class _PageOverlayState extends State<PageOverlay> {
                     },
                     child: Material(
                       clipBehavior: Clip.antiAlias,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.vertical(
-                          bottom: Radius.circular(widget.radius),
-                        ),
-                      ),
+                      // shape: RoundedRectangleBorder(
+                      //   borderRadius: BorderRadius.vertical(
+                      //     bottom: Radius.circular(widget.radius),
+                      //   ),
+                      // ),
                       child: Padding(
                         padding: const EdgeInsets.symmetric(vertical: 20),
                         child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             // Container(
                             //   height: 15,
