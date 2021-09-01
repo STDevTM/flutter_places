@@ -11,6 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   google_maps_webservice: ^0.0.18
+
   http: ^0.13.0
 
 dev_dependencies:
