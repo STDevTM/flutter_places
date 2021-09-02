@@ -37,8 +37,8 @@ class GoogleMapService {
         offset: searchOptions?.offset,
         radius: searchOptions?.radius,
         language: searchOptions?.language,
-        types: searchOptions?.types,
-        components: searchOptions?.components,
+        types: searchOptions?.types ?? [],
+        components: searchOptions?.components ?? [],
         strictbounds: searchOptions?.strictbounds,
         region: searchOptions?.region,
       );
