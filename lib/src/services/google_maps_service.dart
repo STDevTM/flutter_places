@@ -25,10 +25,8 @@ class GoogleMapService {
     Function(String) onError,
     SearchOptions searchOptions,
   }) async {
-    print('going to show loader');
     onLoading?.call(true);
     try {
-      print('trying to autocomplete');
       final res = await _places.autocomplete(
         query,
         sessionToken: searchOptions?.sessionToken,
@@ -43,22 +41,16 @@ class GoogleMapService {
         region: searchOptions?.region,
       );
 
-      print('autocompleted');
-
       if ((res.errorMessage?.isNotEmpty ?? false) ||
           res.status == 'REQUEST_DENIED') {
-        print('error');
         onError?.call(res.errorMessage);
         return Future.error(res.errorMessage);
       }
-
-      print('succeed');
 
       onLoading?.call(false);
       onSuccess?.call(res.predictions);
       return res.predictions;
     } catch (e) {
-      print('catch error');
       print(e);
       onLoading?.call(false);
       onError?.call('$e');

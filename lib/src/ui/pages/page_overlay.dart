@@ -91,8 +91,6 @@ class _PageOverlayState extends State<PageOverlay> {
   }
 
   void _search(String query) {
-    print("query string");
-    print(query);
     if (_isLoadingDetails) return;
 
     _googleMapService.search(
@@ -104,8 +102,6 @@ class _PageOverlayState extends State<PageOverlay> {
         });
       },
       onSuccess: (predictions) {
-        print("List prediction");
-        print(predictions);
         _streamController.add(predictions);
       },
       onError: (error) {
