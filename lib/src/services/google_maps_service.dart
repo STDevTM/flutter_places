@@ -39,7 +39,7 @@ class GoogleMapService {
         language: searchOptions?.language,
         types: searchOptions?.types ?? [],
         components: searchOptions?.components ?? [],
-        strictbounds: searchOptions?.strictbounds,
+        strictbounds: searchOptions?.strictbounds ?? false,
         region: searchOptions?.region,
       );
 
